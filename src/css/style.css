@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  background: rgb(13, 6, 116);
+  background: linear-gradient(
+    223deg,
+    rgba(13, 6, 116, 1) 0%,
+    rgba(7, 4, 61, 1) 100%
+  );
+  font-family: "Poppins", sans-serif;
+  color: white;
+  /* height: 100vh; */
+}

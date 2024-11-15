@@ -3,10 +3,399 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./src/css/output.css" rel="stylesheet">
+    <!-- Poppins Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <title>Document</title>
+    <link href="./src/css/output.css" rel="stylesheet" />
+
+    <title>Task Manager</title>
   </head>
-  <body><h2 class="text-2xl text-red-500">helo</h2>
-<div class="bg-red-500">dasdasd</div></body>
+  <body>
+    <header>
+      <section class="w-full">
+        <section class="max-w-screen-xl px-[20px] mx-auto">
+          <div
+            class="header flex items-center justify-between bg-[#0000008a] backdrop-blur-[8px] py-[20px] px-[40px] mt-[20px] rounded-[10px] mxsm:flex-col mxsm:gap-y-[10px]"
+          >
+            <!-- Title -->
+            <div class="title">
+              <h1 class="text-2xl font-semibold mxsm:text-3xl">
+                Task<span class="text-cyan-300 font-normal">Manager</span>
+              </h1>
+            </div>
+            <!-- User -->
+            <div class="user flex items-center gap-x-[10px]">
+              <img
+                src="src/assets/user-image.jpg"
+                alt=""
+                class="w-[40px] aspect-square object-cover rounded-full"
+              />
+              <div class="user__title flex flex-col justify-center">
+                <h3
+                  class="font-normal text-[20px] uppercase leading-[100%]"
+                  id="username"
+                >
+                  Mian Moiz
+                </h3>
+                <span
+                  class="text-cyan-300 font-semibold text-[16px] leading-[100%]"
+                  >Web Developer</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </header>
+    <main>
+      <section class="w-full">
+        <section class="max-w-screen-xl px-[20px] mx-auto">
+          <!-- Tool Bar -->
+          <section
+            class="bg-[#0000008a] backdrop-blur-[8px] py-[20px] px-[40px] mt-[20px] rounded-[10px] flex items-center justify-between mxsm:flex-col mxsm:gap-y-[10px]"
+          >
+            <h3 class="text-[20px] font-semibold uppercase">
+              Welcome Back,
+              <span class="text-cyan-300" id="username">Moiz</span> 👋
+            </h3>
+            <button
+              class="bg-cyan-500 rounded-[8px] px-[30px] py-[10px] flex items-center gap-x-[10px] transform hover:scale-[1.05] transition-all duration-300"
+              id="addNewTask"
+            >
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.0595 8.19048H8.19048V12.0595C8.19048 12.2648 8.10895 12.4616 7.96383 12.6067C7.81871 12.7518 7.62189 12.8333 7.41667 12.8333C7.21144 12.8333 7.01462 12.7518 6.8695 12.6067C6.72438 12.4616 6.64286 12.2648 6.64286 12.0595V8.19048H2.77381C2.56858 8.19048 2.37176 8.10895 2.22664 7.96383C2.08153 7.81872 2 7.62189 2 7.41667C2 7.21144 2.08153 7.01462 2.22664 6.8695C2.37176 6.72438 2.56858 6.64286 2.77381 6.64286H6.64286V2.77381C6.64286 2.56858 6.72438 2.37176 6.8695 2.22664C7.01462 2.08153 7.21144 2 7.41667 2C7.62189 2 7.81871 2.08153 7.96383 2.22664C8.10895 2.37176 8.19048 2.56858 8.19048 2.77381V6.64286H12.0595C12.2648 6.64286 12.4616 6.72438 12.6067 6.8695C12.7518 7.01462 12.8333 7.21144 12.8333 7.41667C12.8333 7.62189 12.7518 7.81872 12.6067 7.96383C12.4616 8.10895 12.2648 8.19048 12.0595 8.19048Z"
+                  fill="white"
+                />
+              </svg>
+              Add New Task
+            </button>
+          </section>
+          <!-- Task Section -->
+          <section
+            class="bg-[#0000008a] backdrop-blur-[8px] py-[20px] px-[40px] mt-[20px] rounded-[10px] flex justify-between"
+          >
+            <!-- Task Boxes Todo and InProgress -->
+            <div class="w-[60%] flex flex-col gap-y-[20px]">
+              <div
+                class="bg-black rounded-[10px] p-[20px] border-l-[10px] border-red-400 gap-y-[10px] flex flex-col"
+                id="taskBox"
+              >
+                <h4 class="text-[20px] font-semibold text-cyan-200 uppercase">
+                  I have to this task in the give time
+                </h4>
+                <p class="text-[16px] font-extralight text-slate-600">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                  suscipit debitis doloribus quae beatae corporis facilis
+                  ratione deleniti fuga quaerat ex dignissimos, praesentium
+                  officia eius totam dolores adipisci non neque.
+                </p>
+                <!-- TaskBox Tools -->
+                <div class="flex justify-between">
+                  <!-- Eidt and Delete -->
+                  <div class="flex gap-x-[20px]">
+                    <!-- Edit -->
+                    <div
+                      class="edit flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="19"
+                        height="19"
+                        viewBox="0 0 19 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 0.949786C13.296 0.949786 14.496 1.35979 15.477 2.05979L6.343 11.1928C6.24749 11.285 6.17131 11.3954 6.1189 11.5174C6.06649 11.6394 6.0389 11.7706 6.03775 11.9034C6.0366 12.0362 6.0619 12.1678 6.11218 12.2907C6.16246 12.4136 6.23671 12.5253 6.3306 12.6192C6.4245 12.7131 6.53615 12.7873 6.65905 12.8376C6.78194 12.8879 6.91362 12.9132 7.0464 12.912C7.17918 12.9109 7.3104 12.8833 7.4324 12.8309C7.55441 12.7785 7.66475 12.7023 7.757 12.6068L16.891 3.47279C17.6141 4.48782 18.0019 5.70351 18 6.94979V16.9498C18 17.4802 17.7893 17.9889 17.4142 18.364C17.0391 18.7391 16.5304 18.9498 16 18.9498H2C1.46957 18.9498 0.960859 18.7391 0.585786 18.364C0.210714 17.9889 0 17.4802 0 16.9498V2.94979C0 2.41935 0.210714 1.91065 0.585786 1.53557C0.960859 1.1605 1.46957 0.949786 2 0.949786H12ZM18.657 0.292786C18.8445 0.480314 18.9498 0.734622 18.9498 0.999786C18.9498 1.26495 18.8445 1.51926 18.657 1.70679L16.89 3.47279C16.5006 2.9261 16.0227 2.44821 15.476 2.05879L17.242 0.292786C17.4295 0.105315 17.6838 0 17.949 0C18.2142 0 18.4695 0.105315 18.657 0.292786Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <span>Edit</span>
+                    </div>
+                    <!-- Delete -->
+                    <div
+                      class="delete flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="14"
+                        height="18"
+                        viewBox="0 0 14 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V6C13 4.9 12.1 4 11 4H3C1.9 4 1 4.9 1 6V16ZM13 1H10.5L9.79 0.29C9.61 0.11 9.35 0 9.09 0H4.91C4.65 0 4.39 0.11 4.21 0.29L3.5 1H1C0.45 1 0 1.45 0 2C0 2.55 0.45 3 1 3H13C13.55 3 14 2.55 14 2C14 1.45 13.55 1 13 1Z"
+                          fill="white"
+                        />
+                      </svg>
+
+                      <span>Delete</span>
+                    </div>
+                  </div>
+                  <!-- Status -->
+                  <div class="flex items-center gap-x-[10px]">
+                    <span class="">Status:</span>
+                    <select
+                      name="status"
+                      id="status"
+                      class="text-right px-2 py-1 bg-transparent focus:outline-none"
+                    >
+                      <option class="bg-black" value="ToDo">To Do</option>
+                      <option class="bg-black" value="InProgress">
+                        In Progress
+                      </option>
+                      <option class="bg-black" value="Completed">
+                        Completed
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-black rounded-[10px] p-[20px] border-l-[10px] border-red-400 gap-y-[10px] flex flex-col"
+                id="taskBox"
+              >
+                <h4 class="text-[20px] font-semibold text-cyan-200 uppercase">
+                  I have to this task in the give time
+                </h4>
+                <p class="text-[16px] font-extralight text-slate-600">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                  suscipit debitis doloribus quae beatae corporis facilis
+                  ratione deleniti fuga quaerat ex dignissimos, praesentium
+                  officia eius totam dolores adipisci non neque.
+                </p>
+                <!-- TaskBox Tools -->
+                <div class="flex justify-between">
+                  <!-- Eidt and Delete -->
+                  <div class="flex gap-x-[20px]">
+                    <!-- Edit -->
+                    <div
+                      class="edit flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="19"
+                        height="19"
+                        viewBox="0 0 19 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 0.949786C13.296 0.949786 14.496 1.35979 15.477 2.05979L6.343 11.1928C6.24749 11.285 6.17131 11.3954 6.1189 11.5174C6.06649 11.6394 6.0389 11.7706 6.03775 11.9034C6.0366 12.0362 6.0619 12.1678 6.11218 12.2907C6.16246 12.4136 6.23671 12.5253 6.3306 12.6192C6.4245 12.7131 6.53615 12.7873 6.65905 12.8376C6.78194 12.8879 6.91362 12.9132 7.0464 12.912C7.17918 12.9109 7.3104 12.8833 7.4324 12.8309C7.55441 12.7785 7.66475 12.7023 7.757 12.6068L16.891 3.47279C17.6141 4.48782 18.0019 5.70351 18 6.94979V16.9498C18 17.4802 17.7893 17.9889 17.4142 18.364C17.0391 18.7391 16.5304 18.9498 16 18.9498H2C1.46957 18.9498 0.960859 18.7391 0.585786 18.364C0.210714 17.9889 0 17.4802 0 16.9498V2.94979C0 2.41935 0.210714 1.91065 0.585786 1.53557C0.960859 1.1605 1.46957 0.949786 2 0.949786H12ZM18.657 0.292786C18.8445 0.480314 18.9498 0.734622 18.9498 0.999786C18.9498 1.26495 18.8445 1.51926 18.657 1.70679L16.89 3.47279C16.5006 2.9261 16.0227 2.44821 15.476 2.05879L17.242 0.292786C17.4295 0.105315 17.6838 0 17.949 0C18.2142 0 18.4695 0.105315 18.657 0.292786Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <span>Edit</span>
+                    </div>
+                    <!-- Delete -->
+                    <div
+                      class="delete flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="14"
+                        height="18"
+                        viewBox="0 0 14 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V6C13 4.9 12.1 4 11 4H3C1.9 4 1 4.9 1 6V16ZM13 1H10.5L9.79 0.29C9.61 0.11 9.35 0 9.09 0H4.91C4.65 0 4.39 0.11 4.21 0.29L3.5 1H1C0.45 1 0 1.45 0 2C0 2.55 0.45 3 1 3H13C13.55 3 14 2.55 14 2C14 1.45 13.55 1 13 1Z"
+                          fill="white"
+                        />
+                      </svg>
+
+                      <span>Delete</span>
+                    </div>
+                  </div>
+                  <!-- Status -->
+                  <div class="flex items-center gap-x-[10px]">
+                    <span class="">Status:</span>
+                    <select
+                      name="status"
+                      id="status"
+                      class="text-right px-2 py-1 bg-transparent focus:outline-none"
+                    >
+                      <option class="bg-black" value="ToDo">To Do</option>
+                      <option class="bg-black" value="InProgress">
+                        In Progress
+                      </option>
+                      <option class="bg-black" value="Completed">
+                        Completed
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-black rounded-[10px] p-[20px] border-l-[10px] border-yellow-400 gap-y-[10px] flex flex-col"
+                id="taskBox"
+              >
+                <h4 class="text-[20px] font-semibold text-cyan-200 uppercase">
+                  I have to this task in the give time
+                </h4>
+                <p class="text-[16px] font-extralight text-slate-600">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                  suscipit debitis doloribus quae beatae corporis facilis
+                  ratione deleniti fuga quaerat ex dignissimos, praesentium
+                  officia eius totam dolores adipisci non neque.
+                </p>
+                <!-- TaskBox Tools -->
+                <div class="flex justify-between">
+                  <!-- Eidt and Delete -->
+                  <div class="flex gap-x-[20px]">
+                    <!-- Edit -->
+                    <div
+                      class="edit flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="19"
+                        height="19"
+                        viewBox="0 0 19 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 0.949786C13.296 0.949786 14.496 1.35979 15.477 2.05979L6.343 11.1928C6.24749 11.285 6.17131 11.3954 6.1189 11.5174C6.06649 11.6394 6.0389 11.7706 6.03775 11.9034C6.0366 12.0362 6.0619 12.1678 6.11218 12.2907C6.16246 12.4136 6.23671 12.5253 6.3306 12.6192C6.4245 12.7131 6.53615 12.7873 6.65905 12.8376C6.78194 12.8879 6.91362 12.9132 7.0464 12.912C7.17918 12.9109 7.3104 12.8833 7.4324 12.8309C7.55441 12.7785 7.66475 12.7023 7.757 12.6068L16.891 3.47279C17.6141 4.48782 18.0019 5.70351 18 6.94979V16.9498C18 17.4802 17.7893 17.9889 17.4142 18.364C17.0391 18.7391 16.5304 18.9498 16 18.9498H2C1.46957 18.9498 0.960859 18.7391 0.585786 18.364C0.210714 17.9889 0 17.4802 0 16.9498V2.94979C0 2.41935 0.210714 1.91065 0.585786 1.53557C0.960859 1.1605 1.46957 0.949786 2 0.949786H12ZM18.657 0.292786C18.8445 0.480314 18.9498 0.734622 18.9498 0.999786C18.9498 1.26495 18.8445 1.51926 18.657 1.70679L16.89 3.47279C16.5006 2.9261 16.0227 2.44821 15.476 2.05879L17.242 0.292786C17.4295 0.105315 17.6838 0 17.949 0C18.2142 0 18.4695 0.105315 18.657 0.292786Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <span>Edit</span>
+                    </div>
+                    <!-- Delete -->
+                    <div
+                      class="delete flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="14"
+                        height="18"
+                        viewBox="0 0 14 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V6C13 4.9 12.1 4 11 4H3C1.9 4 1 4.9 1 6V16ZM13 1H10.5L9.79 0.29C9.61 0.11 9.35 0 9.09 0H4.91C4.65 0 4.39 0.11 4.21 0.29L3.5 1H1C0.45 1 0 1.45 0 2C0 2.55 0.45 3 1 3H13C13.55 3 14 2.55 14 2C14 1.45 13.55 1 13 1Z"
+                          fill="white"
+                        />
+                      </svg>
+
+                      <span>Delete</span>
+                    </div>
+                  </div>
+                  <!-- Status -->
+                  <div class="flex items-center gap-x-[10px]">
+                    <span class="">Status:</span>
+                    <select
+                      name="status"
+                      id="status"
+                      class="text-right px-2 py-1 bg-transparent focus:outline-none"
+                    >
+                      <option class="bg-black" value="ToDo">To Do</option>
+                      <option class="bg-black" value="InProgress" selected>
+                        In Progress
+                      </option>
+                      <option class="bg-black" value="Completed">
+                        Completed
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Completed and Chart -->
+            <div class="w-[38%] flex flex-col flex-y-[50px] ">
+              <!-- Chart -->
+               <div></div>
+               <!-- Completed -->
+               <div>
+                <div
+                class="bg-black rounded-[10px] p-[20px] border-l-[10px] border-green-400 gap-y-[10px] flex flex-col"
+                id="taskBox"
+              >
+                <h4 class="text-[20px] font-semibold text-cyan-200 uppercase">
+                  I have to this task in the give time
+                </h4>
+                <p class="text-[16px] font-extralight text-slate-600">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                  suscipit debitis doloribus quae beatae corporis facilis
+                  ratione deleniti fuga quaerat ex dignissimos, praesentium
+                  officia eius totam dolores adipisci non neque.
+                </p>
+                <!-- TaskBox Tools -->
+                <div class="flex justify-between">
+                  <!-- Eidt and Delete -->
+                  <div class="flex gap-x-[20px]">
+                    <!-- Edit -->
+                    <div
+                      class="edit flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="19"
+                        height="19"
+                        viewBox="0 0 19 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 0.949786C13.296 0.949786 14.496 1.35979 15.477 2.05979L6.343 11.1928C6.24749 11.285 6.17131 11.3954 6.1189 11.5174C6.06649 11.6394 6.0389 11.7706 6.03775 11.9034C6.0366 12.0362 6.0619 12.1678 6.11218 12.2907C6.16246 12.4136 6.23671 12.5253 6.3306 12.6192C6.4245 12.7131 6.53615 12.7873 6.65905 12.8376C6.78194 12.8879 6.91362 12.9132 7.0464 12.912C7.17918 12.9109 7.3104 12.8833 7.4324 12.8309C7.55441 12.7785 7.66475 12.7023 7.757 12.6068L16.891 3.47279C17.6141 4.48782 18.0019 5.70351 18 6.94979V16.9498C18 17.4802 17.7893 17.9889 17.4142 18.364C17.0391 18.7391 16.5304 18.9498 16 18.9498H2C1.46957 18.9498 0.960859 18.7391 0.585786 18.364C0.210714 17.9889 0 17.4802 0 16.9498V2.94979C0 2.41935 0.210714 1.91065 0.585786 1.53557C0.960859 1.1605 1.46957 0.949786 2 0.949786H12ZM18.657 0.292786C18.8445 0.480314 18.9498 0.734622 18.9498 0.999786C18.9498 1.26495 18.8445 1.51926 18.657 1.70679L16.89 3.47279C16.5006 2.9261 16.0227 2.44821 15.476 2.05879L17.242 0.292786C17.4295 0.105315 17.6838 0 17.949 0C18.2142 0 18.4695 0.105315 18.657 0.292786Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <span>Edit</span>
+                    </div>
+                    <!-- Delete -->
+                    <div
+                      class="delete flex items-center gap-x-[10px] cursor-pointer"
+                    >
+                      <svg
+                        width="14"
+                        height="18"
+                        viewBox="0 0 14 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V6C13 4.9 12.1 4 11 4H3C1.9 4 1 4.9 1 6V16ZM13 1H10.5L9.79 0.29C9.61 0.11 9.35 0 9.09 0H4.91C4.65 0 4.39 0.11 4.21 0.29L3.5 1H1C0.45 1 0 1.45 0 2C0 2.55 0.45 3 1 3H13C13.55 3 14 2.55 14 2C14 1.45 13.55 1 13 1Z"
+                          fill="white"
+                        />
+                      </svg>
+  
+                      <span>Delete</span>
+                    </div>
+                  </div>
+                  <!-- Status -->
+                  <div class="flex items-center gap-x-[10px]">
+                    <span class="">Status:</span>
+                    <select
+                      name="status"
+                      id="status"
+                      class="text-right px-2 py-1 bg-transparent focus:outline-none"
+                    >
+                      <option class="bg-black" value="ToDo">To Do</option>
+                      <option class="bg-black" value="InProgress">
+                        In Progress
+                      </option>
+                      <option class="bg-black" value="Completed" selected>
+                        Completed
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            
+          </section>
+        </section>
+      </section>
+    </main>
+    <script src="src/js/chart.js"></script>
+  </body>
 </html>
